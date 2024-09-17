@@ -3,8 +3,16 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
+#include <deque>
 #include <algorithm>
 #include <exception>
+#include <set>
+
+#define RED "\e[0;31m"
+#define BLUE "\e[0;34m"
+#define NC "\e[0m"
+
 
 template <typename T>
 typename T::const_iterator easyfind(const T& v, int i) {
