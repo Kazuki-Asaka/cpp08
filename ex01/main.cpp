@@ -1,15 +1,50 @@
 #include "Span.hpp"
 
-// int	main() {
-// 	std::vector<int> vec;
-// 	for (int i = 0; i < 10; i++) {
-// 		vec.push_back(i);
-// 	}
-// 	std::vector<int> vec1(100);
-// 	std::cout << vec1[0] << std::endl;
-// 	std::cout << vec1.size() << std::endl;
-// 	std::vector<int>::const_iterator result = std::max_element(vec.begin(), vec.end());
-// 	std::cout << *result << std::endl;
-// }
+int	main() {
+	{
+		try {
+			Span sp(5);
 
+			sp.addNumber(6);
+			sp.addNumber(3);
+			sp.addNumber(17);
+			sp.addNumber(9);
+			sp.addNumber(11);
 
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		} catch (std::exception& e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+
+	{
+		try {
+			Span sp(5);
+
+			sp.addNumber(2147483647);
+			sp.addNumber(-2147483648);
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		} catch (std::exception& e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+
+	// {
+	// 	try {
+	// 		Span sp();
+
+	// 	} catch(std::exception& e) {
+	// 		std::cerr << e.what() << std::endl;
+	// 	}
+	// }
+	{
+		try {
+			Span sp(100000);
+			
+		} catch(std::exception& e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+}
