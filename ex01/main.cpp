@@ -40,9 +40,20 @@ int	main() {
 	// 	}
 	// }
 	{
+		std::cout << "test" << std::endl;
 		try {
-			Span sp(100000);
+			Span sp(10000);
 			
+			std::vector<int> vec;
+			for (int i = 0; i < 10001; i++) {
+				vec.push_back(i);
+			}
+			std::cout << "here" << std::endl;
+			sp.addNumber(vec.begin(), vec.end());
+			std::cout << "here1" << std::endl;
+
+			std::cout << "short " << sp.shortestSpan() << std::endl;
+			std::cout << "long " << sp.longestSpan() << std::endl;
 		} catch(std::exception& e) {
 			std::cerr << e.what() << std::endl;
 		}

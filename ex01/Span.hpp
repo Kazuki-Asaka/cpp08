@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <set>
 #include <exception>
+#include <vector>
 
 class Span {
 public:
@@ -13,6 +14,14 @@ public:
 	Span& operator=(const Span& rhs);
 	~Span();
 	void addNumber(int i);
+	template <typename T>
+	void addNumber(T begin, T end)
+	{
+		for (T it = begin; it != end; it++)
+		{
+			addNumber(*it);
+		}
+	}
 	unsigned int shortestSpan();
 	unsigned int longestSpan();
 private:
