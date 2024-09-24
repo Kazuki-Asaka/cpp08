@@ -38,7 +38,7 @@ unsigned int Span::shortestSpan() {
 		unsigned int min = static_cast<unsigned int>(*(start) - base);
 		for (std::multiset<int>::const_iterator it = start; it != set.end(); it++) {
 			unsigned int tmp = static_cast<unsigned int>(*(it) - base);
-			std::cout << "tmp " << tmp << std::endl;
+			// std::cout << "tmp " << tmp << std::endl;
 			if(tmp < min)
 				min = tmp;
 			base = *(it);
