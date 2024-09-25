@@ -83,6 +83,21 @@ int	main() {
 
 	{
 		std::cout << "============Add Many Elements Test(int array)=================" << std::endl;
+		try {
+			int array[10001];
+			for (int i = 0; i < 10001; i++) {
+				array[i] = i; 
+			}
+			Span sp(100001);
+			sp.addNumber(array, array + 10001);
+
+			std::cout << "short " << sp.shortestSpan() << std::endl;
+			std::cout << "long " << sp.longestSpan() << std::endl;
+
+
+		} catch(std::exception& e) {
+
+		}
 	}
 
 	{
@@ -112,6 +127,42 @@ int	main() {
 	}
 
 	{
-		
+		std::cout << "============Over Eleements Test=================" << std::endl;
+		try {
+			Span sp(20000);
+			
+			std::vector<int> vec;
+			for (int i = 0; i < 20001; i++) {
+				vec.push_back(i);
+			}
+			// std::cout << "here" << std::endl;
+			sp.addNumber(vec.begin(), vec.end());
+			// std::cout << "here1" << std::endl;
+
+			std::cout << "short " << sp.shortestSpan() << std::endl;
+			std::cout << "long " << sp.longestSpan() << std::endl;
+		} catch(std::exception& e) {
+			std::cerr << e.what() << std::endl;
+		}
+	}
+
+	{
+		std::cout << "============Other Error Eleements Test=================" << std::endl;
+		try {
+			Span sp(20000);
+			
+			std::vector<int> vec;
+			for (int i = 0; i < 20000; i++) {
+				vec.push_back(i);
+			}
+			// std::cout << "here" << std::endl;
+			sp.addNumber(vec.end(), vec.begin());
+			// std::cout << "here1" << std::endl;
+
+			std::cout << "short " << sp.shortestSpan() << std::endl;
+			std::cout << "long " << sp.longestSpan() << std::endl;
+		} catch(std::exception& e) {
+			std::cerr << e.what() << std::endl;
+		}
 	}
 }

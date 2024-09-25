@@ -20,6 +20,7 @@ Span& Span::operator=(const Span& rhs) {
 
 void Span::addNumber(int i) {
 	if (set.size() ==  _length) {
+		// std::cerr << "aaaaaaaaaa" << std::endl;
 		throw std::exception();
 	}
 	else {

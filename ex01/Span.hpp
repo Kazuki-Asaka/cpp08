@@ -17,9 +17,21 @@ public:
 	template <typename T>
 	void addNumber(T begin, T end)
 	{
-		for (T it = begin; it != end; it++)
-		{
-			addNumber(*it);
+		try {
+			if (std::distance(begin, end) < 0) {
+				throw std::exception();
+			}
+			else {
+				for (T it = begin; it != end; it++)
+				{
+					// std::cout << "test" << std::endl;
+					addNumber(*it);
+				}
+			}
+		} catch (std::exception& e) {
+			// std::cerr << e.what() << std::endl;
+			// std::cerr << "ttt" << std::endl;
+			throw ;
 		}
 	}
 	unsigned int shortestSpan();
