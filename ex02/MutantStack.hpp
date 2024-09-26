@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <deque>
-#include <string>
+#include <list>
 #include <vector>
 
 template <typename T, typename Container=std::deque<T>>
@@ -15,8 +15,9 @@ public:
     ~MutantStack();
     void push(T addition);
     void pop();
-    Container::iterator begin();
-    Container::iterator end();
+    T top();
+    Container::iterator begin() const;
+    Container::iterator end() const;
     
 private:
     Container container;
