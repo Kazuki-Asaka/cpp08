@@ -1,5 +1,4 @@
 SRCS	=	main.cpp\
-			MutantStack.tpp\
 
 OBJS	=	$(SRCS:.cpp=.o)
 

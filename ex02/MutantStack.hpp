@@ -5,8 +5,9 @@
 #include <deque>
 #include <list>
 #include <vector>
+#include <stack>
 
-template <typename T, typename Container=std::deque<T>>
+template <typename T, typename Container=std::deque<T> >
 class MutantStack {
 public:
     MutantStack();
@@ -16,9 +17,9 @@ public:
     void push(T addition);
     void pop();
     T top();
-    Container::iterator begin() const;
-    Container::iterator end() const;
-    
+    typename Container::iterator begin() const;
+    typename Container::iterator end() const;
+    size_t size();
 private:
     Container container;
 };
