@@ -32,19 +32,33 @@
 //     return 0;
 // }
 
+// int main() {
+//     std::vector<int> vec;
+
+//     for (int i = 0; i < 5; i++) {
+//         vec.push_back(i);
+//     }
+
+//     std::vector<int> vec1;
+
+//     vec1 = vec;
+//     for (std::vector<int>::iterator it = vec1.begin(); it != vec1.end(); it++) {
+//         std::cout << *it << std::endl;
+//     }
+
+
+// }
+
+
 int main() {
-    std::vector<int> vec;
+    std::stack<int> mstack;
 
-    for (int i = 0; i < 5; i++) {
-        vec.push_back(i);
-    }
-
-    std::vector<int> vec1;
-
-    vec1 = vec;
-    for (std::vector<int>::iterator it = vec1.begin(); it != vec1.end(); it++) {
-        std::cout << *it << std::endl;
-    }
+    mstack.push(5);
+    mstack.pop();
+    std::cout << mstack.top() << std::endl;
+    // std::cout << mstack.size() << std::endl;//
+    // std::stack<int>::iterator it = mstack.end();
+    // std::cout << mstack 
 
 
 }
