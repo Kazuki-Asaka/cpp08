@@ -6,6 +6,7 @@
 #include <list>
 #include <vector>
 #include <stack>
+#include <exception>
 
 template <typename T, typename Container=std::deque<T> >
 class MutantStack : public std::stack<T, Container>{
@@ -18,7 +19,7 @@ public:
     ~MutantStack();
     void push(T addition);
     void pop();
-    T top();
+    T top() const;
     iterator begin();
     iterator end();
     const_iterator begin() const;

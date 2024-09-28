@@ -53,12 +53,12 @@
 int main() {
     std::stack<int> mstack;
 
-    mstack.push(5);
+    // mstack.push(5);
     mstack.pop();
-    std::cout << mstack.top() << std::endl;
+    std::cout << "Hello" << std::endl;
+    // std::cout << mstack.top() << std::endl;
     // std::cout << mstack.size() << std::endl;//
     // std::stack<int>::iterator it = mstack.end();
     // std::cout << mstack 
-
 
 }

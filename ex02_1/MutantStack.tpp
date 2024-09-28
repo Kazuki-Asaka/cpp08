@@ -6,8 +6,8 @@ MutantStack<T, Container>::MutantStack() {
 }
 
 template <typename T, typename Container>
-MutantStack<T, Container>::MutantStack(const MutantStack& rhs) {
-	*this = rhs;
+MutantStack<T, Container>::MutantStack(const MutantStack& rhs) : std::stack<T, Container>(rhs){
+	// *this = rhs;
 }
 
 template <typename T, typename Container>
@@ -27,18 +27,25 @@ template <typename T, typename Container>
 void MutantStack<T, Container>::push(T addition) {
 	// std::stack<T, Container>::c.push_back(addition);
 	this -> c.push_back(addition);
+	//  std::stack<T, Container>::push(addition);
 }
 
 template <typename T, typename Container>
 void MutantStack<T, Container>::pop() {
 	// std::stack<T, Container>::c.pop_back();
-	this -> c.pop_back();
+	if (this -> c.empty() == false)
+		this -> c.pop_back();
 }
 
 template <typename T, typename Container>
-T MutantStack<T, Container>::top() {
+T MutantStack<T, Container>::top() const{
 	// return (std::stack<T, Container>::c.back());
-	return (this -> c.back());
+	if (this -> c.empty() == false)
+		return (this -> c.back());
+	else {
+		// std::cerr << "Top exception" << std::endl;
+		throw std::exception();
+	}
 	// typename Container::iterator it = this -> c.end();
 	// --it;
 	// return (*it);
@@ -66,11 +73,11 @@ size_t MutantStack<T, Container>::size() const{
 template <typename T, typename Container>
 typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::begin() const{
 	// return (std::stack<T, Container>::c.begin());
-	return (this -> begin());
+	return (this -> c.begin());
 }
 
 template <typename T, typename Container>
 typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::end() const{
 	// return (std::stack<T, Container>::c.end());
-	return (this -> begin());
+	return (this -> c.end());
 }
